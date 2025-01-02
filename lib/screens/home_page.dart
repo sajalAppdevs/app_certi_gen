@@ -1,3 +1,4 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,6 +10,31 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _formKey = GlobalKey<FormState>();
+  String? _selectedFilePath;
+
+  Future<void> _pickExcelFile() async {
+    try {
+      FilePickerResult? result =
+          await FilePicker.platform.pickFiles(type: FileType.custom, allowedExtensions: ['xlsx', 'xls']);
+      if (result != null && result.files.isNotEmpty) {
+        setState(() {
+          _selectedFilePath = result.files.single.path;
+        });
+        // Optional: Show a snackbar to confirm file selection
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Selected: ${result.files.single.name}')),
+          );
+        }
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error picking file $e')),
+        );
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +80,14 @@ class _HomePageState extends State<HomePage> {
                 child: const Text('Submit'),
               ),
               const SizedBox(height: 10),
-              ElevatedButton(onPressed: () {}, child: const Text('Browse for excel sheet'))
+              ElevatedButton(
+                onPressed: () {
+                  _pickExcelFile();
+                },
+                child: Text(_selectedFilePath != null
+                    ? 'Selected: ${_selectedFilePath!.split('/').last}'
+                    : 'Browse for excel sheet'),
+              )
             ],
           ),
         ),
