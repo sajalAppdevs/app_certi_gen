@@ -84,9 +84,16 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   _pickExcelFile();
                 },
-                child: Text(_selectedFilePath != null
-                    ? 'Selected: ${_selectedFilePath!.split('/').last}'
-                    : 'Browse for excel sheet'),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    const Icon(Icons.file_upload),
+                    Text(_selectedFilePath != null
+                        ? 'Selected: ${_selectedFilePath!.split('/').last}'
+                        : 'Upload excel sheet'),
+                  ],
+                ),
               )
             ],
           ),
