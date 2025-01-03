@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(height: 10),
               TextFormField(
-                decoration: const InputDecoration(hintText: 'Enter your name'),
+                decoration: const InputDecoration(hintText: 'Enter the number of certificates'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter a value';
@@ -68,6 +68,7 @@ class _HomePageState extends State<HomePage> {
                 onSaved: (value) {
                   // Handle saved value
                 },
+                keyboardType: TextInputType.number,
               ),
               const SizedBox(height: 20),
               ElevatedButton(
