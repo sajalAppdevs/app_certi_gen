@@ -55,31 +55,36 @@ class _HomePageState extends State<HomePage> {
             children: [
               const Text(
                 'How many certificates do you wish to generate?',
+                style: TextStyle(fontSize: 20),
+                textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 10),
-              TextFormField(
-                decoration: const InputDecoration(hintText: 'Enter the number of certificates'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a value';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  // Handle saved value
-                },
-                keyboardType: TextInputType.number,
+              const SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: TextFormField(
+                  decoration: const InputDecoration(hintText: 'Enter the number of certificates'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a value';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    // Handle saved value
+                  },
+                  keyboardType: TextInputType.number,
+                ),
               ),
               const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    // Handle successful validation
-                  }
-                },
-                child: const Text('Submit'),
-              ),
+              // ElevatedButton(
+              //   onPressed: () {
+              //     if (_formKey.currentState!.validate()) {
+              //       _formKey.currentState!.save();
+              //       // Handle successful validation
+              //     }
+              //   },
+              //   child: const Text('Submit'),
+              // ),
               const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
