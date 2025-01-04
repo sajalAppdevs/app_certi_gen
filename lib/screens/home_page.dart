@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                   keyboardType: TextInputType.number,
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 50),
               // ElevatedButton(
               //   onPressed: () {
               //     if (_formKey.currentState!.validate()) {
@@ -85,7 +85,12 @@ class _HomePageState extends State<HomePage> {
               //   },
               //   child: const Text('Submit'),
               // ),
-              const SizedBox(height: 10),
+              GestureDetector(
+                  onTap: () {
+                    _pickExcelFile();
+                  },
+                  child: Image.asset('assets/images/excel_sheet.png')),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   _pickExcelFile();
@@ -97,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                     const Icon(Icons.file_upload),
                     Text(_selectedFilePath != null
                         ? 'Selected: ${_selectedFilePath!.split('/').last}'
-                        : 'Upload excel sheet'),
+                        : 'Browse Excel File'),
                   ],
                 ),
               )
