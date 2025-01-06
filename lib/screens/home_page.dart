@@ -87,11 +87,11 @@ class _HomePageState extends State<HomePage> {
               // ),
               const Text('Select excel file for extracting data', style: TextStyle(fontSize: 17)),
               const SizedBox(height: 15),
-              GestureDetector(
-                  onTap: () {
-                    _pickExcelFile();
-                  },
-                  child: Image.asset('assets/images/excel_sheet.png')),
+              // GestureDetector(
+              //     onTap: () {
+              //       _pickExcelFile();
+              //     },
+              //     child: Image.asset('assets/images/excel_sheet.png')),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
