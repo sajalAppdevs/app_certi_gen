@@ -75,16 +75,16 @@ class _HomePageState extends State<HomePage> {
                   keyboardType: TextInputType.number,
                 ),
               ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    // Handle successful validation
-                  }
-                },
-                child: const Text('Submit'),
-              ),
+              // const SizedBox(height: 20),
+              // ElevatedButton(
+              //   onPressed: () {
+              //     if (_formKey.currentState!.validate()) {
+              //       _formKey.currentState!.save();
+              //       // Handle successful validation
+              //     }
+              //   },
+              //   child: const Text('Submit'),
+              // ),
               const SizedBox(height: 50),
               const Text('Select excel file for extracting data', style: TextStyle(fontSize: 17)),
               const SizedBox(height: 15),
